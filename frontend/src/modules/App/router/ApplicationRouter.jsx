@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 import { BrowserRouter } from 'react-router-dom';
@@ -9,13 +9,11 @@ const ApplicationRouter = ({
 }) => {
 
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <BrowserRouter>
-        <AppRouter
-          modules={modules}
-        />
-      </BrowserRouter>
-    </Suspense>
+    <BrowserRouter>
+      <AppRouter
+        modules={modules}
+      />
+    </BrowserRouter>
   );
 };
 
