@@ -6,7 +6,7 @@ const Button = ({
 }) => {
   return(
     <ButtonStyled disabled={disabled} {...rest}>
-      {icon}{children}
+      {icon && <img src={icon} alt="button icon"/>}{children}
     </ButtonStyled>
   )
 }

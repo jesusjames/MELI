@@ -1,16 +1,23 @@
 import { HeaderContainerStyled, HeaderStyled } from './style';
 import MeliPNG from 'assets/images/Logo_meli.png';
+import SearchPNG from 'assets/images/Search.png';
 import Input from '../Input/Input';
 import { useState } from 'react';
 import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   const onChangeSearch = (event) => {
     const { value } = event.target;
     setSearch(value);
   };
+
+  const searchProducts = () => {
+    navigate(`/items?q=${search}`);
+  }
 
   return(
     <HeaderStyled>
@@ -25,7 +32,9 @@ const Header = () => {
         <Button
           className="brr-4"
           disabled={!search}
-        >buscar</Button>
+          icon={SearchPNG}
+          onClick={searchProducts}
+        />
       </HeaderContainerStyled>
     </HeaderStyled>
   )

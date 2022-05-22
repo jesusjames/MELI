@@ -14,15 +14,18 @@ const { actions, reducer } = createSlice({
   initialState,
   reducers: {
     productsFetchInit: (state) => {
-      state.loader = true;
+      state.isLoading = true;
+    },
+    productFetchInit: (state) => {
+      state.isLoading = true;
     },
     productsFetchSuccess: (state, action) => {
       state.data = action.payload;
-      state.loader = false;
+      state.isLoading = false;
       state.error = null;
     },
     productsFetchError: (state, action) => {
-      state.loader = false;
+      state.isLoading = false;
       state.error = action.payload;
     }
   }
