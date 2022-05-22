@@ -1,6 +1,14 @@
+import { AppModule, ProductsModule } from '../modules';
+
+const { ApplicationRouter } = AppModule.router;
+
 const MeliAppRouter = () => {
   return(
-    <h1>MeliAppRouter</h1>
+    <ApplicationRouter
+      modules={[
+        ProductsModule()
+      ]}
+    />
   )
 }
 
