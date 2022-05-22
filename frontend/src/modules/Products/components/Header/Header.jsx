@@ -2,6 +2,7 @@ import { HeaderContainerStyled, HeaderStyled } from './style';
 import MeliPNG from 'assets/images/Logo_meli.png';
 import Input from '../Input/Input';
 import { useState } from 'react';
+import Button from '../Button/Button';
 
 const Header = () => {
   const [search, setSearch] = useState('');
@@ -21,7 +22,10 @@ const Header = () => {
           onChange={onChangeSearch}
           placeholder="Nunca dejes de buscar"
           block />
-        <button>buscar</button>
+        <Button
+          className="brr-4"
+          disabled={!search}
+        >buscar</Button>
       </HeaderContainerStyled>
     </HeaderStyled>
   )
