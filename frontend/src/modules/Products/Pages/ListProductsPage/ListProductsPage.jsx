@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductsActions } from '../../reducer/Products';
 import { useSearchParams } from 'react-router-dom';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const ListProductsPage = () => {
-  const { data: products, isLoading } = useSelector(state => state?.products);
+  const { data, isLoading } = useSelector(state => state?.products);
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ const ListProductsPage = () => {
 
   return(
     <ContainerStyled className="flex flex-col">
-      <p>de</p>
+      <Breadcrumb categories={data?.categories} />
     </ContainerStyled>
   )
 }
