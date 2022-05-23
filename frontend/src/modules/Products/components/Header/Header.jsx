@@ -4,10 +4,12 @@ import SearchPNG from 'assets/images/Search.png';
 import Input from '../Input/Input';
 import { useState } from 'react';
 import Button from '../Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Header = () => {
-  const [search, setSearch] = useState('');
+  const [searchParams] = useSearchParams();
+  const q = searchParams.get('q');
+  const [search, setSearch] = useState(q);
   const navigate = useNavigate();
 
   const onChangeSearch = (event) => {
@@ -22,7 +24,7 @@ const Header = () => {
   return(
     <HeaderStyled>
       <HeaderContainerStyled className="container m-auto">
-        <img className="mr-2" src={MeliPNG} alt="logo mercado libre" />
+        <img className="mr-2" src={MeliPNG} alt="logo mercado libre" onClick={() => navigate('/')}/>
         <Input
           className="brl-4"
           value={search}

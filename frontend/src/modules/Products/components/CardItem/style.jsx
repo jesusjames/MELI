@@ -19,6 +19,7 @@ export const ImageContainerStyled = styled.div`
   height: 180px;
   width: 180px;
   border-radius: 4px;
+  background: #e3e3e3;
 
   img {
     height: 100%;

@@ -20,7 +20,7 @@ export const ContainerStyled = styled.div`
   }
 `;
 
-export const SkeletonStyled = styled.div`
+export const BreadcrumbSkeletonStyled = styled.div`
   background: #e3e3e3;
   height: 1rem;
   width: 300px;

@@ -14,4 +14,7 @@ export const HeaderContainerStyled = styled.div`
   flex-direction: row;
   padding: 10px 20px;
   justify-content: center;
+  img{
+    cursor: pointer;
+  }
 `;

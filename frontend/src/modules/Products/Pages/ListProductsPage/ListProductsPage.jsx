@@ -5,7 +5,8 @@ import { ProductsActions } from '../../reducer/Products';
 import { useSearchParams } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import { CardItem } from '../../components/CardItem/CardItem';
-import { SkeletonStyled } from '../../components/Breadcrumb/style';
+import { BreadcrumbSkeletonStyled } from '../../components/Breadcrumb/style';
+import CardSkeleton from '../../components/CardSkeleton/CardSkeleton';
 
 const ListProductsPage = () => {
   const { data, isLoading } = useSelector(state => state?.products);
@@ -18,10 +19,11 @@ const ListProductsPage = () => {
     dispatch(ProductsActions.productsFetchInit({ search }));
   }, [search]);
 
-  if(isLoading === false){
+  if(isLoading){
     return(
       <ContainerStyled className="flex flex-col mb-2">
-        <SkeletonStyled  className="animate-pulse"/>
+        <BreadcrumbSkeletonStyled  className="animate-pulse"/>
+        <CardSkeleton lengthCards={4} />
       </ContainerStyled>
     )
   }
