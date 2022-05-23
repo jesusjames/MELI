@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { CardStyled, ImageContainerStyled } from './style';
 import PropTypes from 'prop-types';
 
-export const CardItem = ({ image, title, price }) => {
+export const CardItem = ({ image, title, price, onClick }) => {
   return(
-    <CardStyled>
+    <CardStyled onClick={onClick}>
       <ImageContainerStyled>
         <img src={image} alt={title} />
       </ImageContainerStyled>
@@ -16,10 +16,15 @@ export const CardItem = ({ image, title, price }) => {
   )
 }
 
+CardItem.defaultProps = {
+  onClick: () => {}
+}
+
 CardItem.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired
+  price: PropTypes.number.isRequired,
+  onClick: PropTypes.func
 }
 
 export default memo(CardItem);

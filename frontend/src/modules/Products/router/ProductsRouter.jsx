@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductsLayout from '../layouts/ProductsLayout';
 import ListProductsPage from '../Pages/ListProductsPage/ListProductsPage';
 import HomePage from '../Pages/HomePage/HomePage';
+import DetailPage from '../Pages/DetailPage/DetailPage';
 
 const ProductsRouter = () => {
   return (
@@ -11,7 +12,7 @@ const ProductsRouter = () => {
       <Route path="/" element={<ProductsLayout/>}>
         <Route index element={<HomePage />}/>
         <Route path="items" element={<ListProductsPage />}/>
-        <Route path="items/:id" element={<h3>Detalle producto</h3>}/>
+        <Route path="items/:id" element={<DetailPage />}/>
         <Route path="*" element={<h3>Pagina no encontrada 404</h3>} />
       </Route>
     </Routes>

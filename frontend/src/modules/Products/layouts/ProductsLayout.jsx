@@ -6,7 +6,7 @@ const ProductsLayout = () => {
   return(
     <div className="container m-auto d-flex w-screen">
       <Header />
-      <div className="w-full h-full pt-4">
+      <div className="w-full h-full pt-4 mx-1">
         <Outlet />
       </div>
     </div>

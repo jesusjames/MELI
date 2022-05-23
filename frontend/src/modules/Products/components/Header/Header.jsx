@@ -9,7 +9,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 const Header = () => {
   const [searchParams] = useSearchParams();
   const q = searchParams.get('q');
-  const [search, setSearch] = useState(q);
+  const [search, setSearch] = useState(!q ? '' : q);
   const navigate = useNavigate();
 
   const onChangeSearch = (event) => {
