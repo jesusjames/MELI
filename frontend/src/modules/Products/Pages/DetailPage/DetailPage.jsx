@@ -4,7 +4,7 @@ import { BreadcrumbSkeletonStyled } from '../../components/Breadcrumb/style';
 import { useEffect } from 'react';
 import { ProductsActions } from '../../reducer/Products';
 import { useParams } from 'react-router-dom';
-import { ContainerStyled, ImageContainerStyled } from './style';
+import { ContainerDetailStyled, ContainerStyled, DescriptionStyled, ImageContainerStyled } from './style';
 import Button from '../../components/Button/Button';
 import DetailSkeleton from '../../components/DetailSkeleton/DetailSkeleton';
 
@@ -19,7 +19,7 @@ export const DetailPage = () => {
   }, [])
 
   if(error) {
-    return <div className="w-full p-2 bg-white br-4 mb-2">
+    return <div className="p-2 bg-white br-4 mb-2">
       <h4>No se encontraron datos</h4>
     </div>
   }
@@ -27,13 +27,13 @@ export const DetailPage = () => {
   const conditionText = data?.item?.condition === 'new' ? 'Nuevo' : data?.item?.condition;
 
   return(
-    <>
+    <ContainerStyled className="flex flex-col mb-2">
       {!isLoading ? <Breadcrumb categories={data?.categories}/> : <BreadcrumbSkeletonStyled />}
-      <div className="w-full p-2 bg-white br-4 mb-2">
+      <div className="p-2 bg-white br-4 mb-2">
         {isLoading ?
           <DetailSkeleton /> :
           (
-            <ContainerStyled>
+            <ContainerDetailStyled>
               <ImageContainerStyled>
                 <img src={data?.item?.picture} alt={data?.item?.title} />
               </ImageContainerStyled>
@@ -45,15 +45,15 @@ export const DetailPage = () => {
                   Comprar
                 </Button>
               </div>
-              <div>
+              <DescriptionStyled>
                 <h3 className="mt-1">Descripción del producto</h3>
                 <p className="mt-2">{data?.item?.description}</p>
-              </div>
-            </ContainerStyled>
+              </DescriptionStyled>
+            </ContainerDetailStyled>
           )
         }
       </div>
-    </>
+    </ContainerStyled>
   )
 }
 

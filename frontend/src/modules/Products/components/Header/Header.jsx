@@ -5,6 +5,7 @@ import Input from '../Input/Input';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { ENTER_KEY } from '../../../../constans';
 
 const Header = () => {
   const [searchParams] = useSearchParams();
@@ -21,6 +22,12 @@ const Header = () => {
     navigate(`/items?q=${search}`);
   }
 
+  const handleKeyPress = (event) => {
+    if(event.key === ENTER_KEY){
+      searchProducts();
+    }
+  }
+
   return(
     <HeaderStyled>
       <HeaderContainerStyled className="container m-auto">
@@ -30,7 +37,8 @@ const Header = () => {
           value={search}
           onChange={onChangeSearch}
           placeholder="Nunca dejes de buscar"
-          block />
+          block
+          onKeyPress={handleKeyPress}/>
         <Button
           className="brr-4"
           disabled={!search}

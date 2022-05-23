@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
 export const ContainerStyled = styled.div`
+  margin-left: 1rem;
+  margin-right: 1rem;
+`;
+
+export const ContainerDetailStyled = styled.div`
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
   
 
   img {
@@ -12,7 +17,7 @@ export const ContainerStyled = styled.div`
   }
   
   @media(min-width: 640px) {
-    grid-template-columns: 4fr 2fr;
+    grid-template-columns: 60% 40%;
     grid-template-rows:  auto auto;
   }
 
@@ -33,4 +38,11 @@ export const ImageContainerStyled = styled.div`
     border-radius: 0.5rem;
     object-fit: cover;
   }
+`;
+
+export const DescriptionStyled = styled.div`
+  @media(min-width: 640px) {
+    grid-column: 1 / 3;
+  }
+  
 `;
