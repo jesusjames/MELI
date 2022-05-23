@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 
 const ProductsLayout = () => {
   return(
-    <div className="container m-auto d-flex w-screen h-screen">
+    <div className="container m-auto d-flex w-screen">
       <Header />
       <div className="w-full h-full pt-4">
         <Outlet />

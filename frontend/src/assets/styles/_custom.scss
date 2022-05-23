@@ -243,3 +243,27 @@
 .text-center {
   text-align: center;
 }
+
+/*.animate-pulse {
+  animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
+}*/
+
+@mixin animate($animation,$duration,$method,$times){
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+.animate-pulse{
+  @include keyframes(pulse){
+
+    50%{
+      opacity: 0.5;
+    }
+  }
+  @include animate(pulse, 2s, cubic-bezier(.4,0,.6,1), infinite);
+}
