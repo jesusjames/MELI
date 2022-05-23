@@ -27,7 +27,9 @@ const getProducts = async (req = request, res = response) => {
     const categories = [];
     const categoryFilter = data.filters.find(filter => filter.id === 'category');
     if (categoryFilter) {
-      categoryFilter.values.forEach(value => categories.push(value.name));
+      categoryFilter.values.forEach(value => {
+        value['path_from_root'].forEach(cat => categories.push(cat.name))
+      });
     };
 
     const items = data.results.map(item => new Product(item));

@@ -5,7 +5,7 @@ const Button = ({
   children, icon, disabled, block, color, ...rest
 }) => {
   return(
-    <ButtonStyled disabled={disabled} block={block} color={color} {...rest}>
+    <ButtonStyled data-testid="button-test" disabled={disabled} block={block} color={color} {...rest}>
       {icon && <img src={icon} alt="button icon"/>}{children}
     </ButtonStyled>
   )

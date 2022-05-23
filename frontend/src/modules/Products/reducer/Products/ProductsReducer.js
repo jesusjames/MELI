@@ -20,7 +20,7 @@ const { actions, reducer } = createSlice({
       state.isLoading = true;
     },
     productsFetchSuccess: (state, action) => {
-      state.data = action.payload;
+      state.data = {...state.data, ...action.payload};
       state.isLoading = false;
       state.error = null;
     },

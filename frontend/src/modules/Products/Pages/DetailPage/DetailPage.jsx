@@ -9,7 +9,7 @@ import Button from '../../components/Button/Button';
 import DetailSkeleton from '../../components/DetailSkeleton/DetailSkeleton';
 
 export const DetailPage = () => {
-  const { data, isLoading } = useSelector(state => state?.products);
+  const { data, isLoading, error } = useSelector(state => state?.products);
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -17,6 +17,12 @@ export const DetailPage = () => {
   useEffect(() => {
     dispatch(ProductsActions.productFetchInit({ id }))
   }, [])
+
+  if(error) {
+    return <div className="w-full p-2 bg-white br-4 mb-2">
+      <h4>No se encontraron datos</h4>
+    </div>
+  }
 
   const conditionText = data?.item?.condition === 'new' ? 'Nuevo' : data?.item?.condition;
 
