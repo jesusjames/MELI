@@ -30,3 +30,8 @@ Ejecutar dentro de la carpeta frontend:
 npm install
 npm start
 ```
+
+Se desarrollador 3 test (ListProductsPage.test.jsx, Button.test.jsx, ProductsReducer.test.jsx)
+```
+npm test
+```

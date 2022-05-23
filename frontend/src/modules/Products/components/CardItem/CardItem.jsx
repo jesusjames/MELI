@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export const CardItem = ({ image, title, price, onClick }) => {
   return(
-    <CardStyled onClick={onClick}>
+    <CardStyled onClick={onClick} data-testid="card-item">
       <ImageContainerStyled>
         <img src={image} alt={title} />
       </ImageContainerStyled>
